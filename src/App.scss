@@ -1,0 +1,12 @@
+@import "./scss/base";
+
+.App {
+  background: $outside-main-background--color;
+  
+  .main-container {
+    background: $color-grey-99;
+    max-width: 1440px;
+    height: 100vh;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,36 @@
+@import '../scss/base';
+
+.search__bar {
+  background: $search-background--color;
+  display: flex;
+  width: 100%;
+  height: 7rem;
+  padding: 2rem 3rem 0;
+  position: relative;
+
+  .search__label {
+    position: absolute;
+    top: 30px;
+    left: 35px;
+  }
+
+  .search__input {
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: $border--radius;
+    font-size: 1.1rem;
+    font-weight: 600;
+    height: 4rem;
+    padding: 0 0 0 35px;
+    width: 100%;
+    
+    &:focus {
+      outline: none;
+    }
+    
+    &::placeholder {
+      color: $placeholder-font--color-white;
+      opacity: 1;
+    }
+  }
+}

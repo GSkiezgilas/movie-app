@@ -1,0 +1,48 @@
+//
+// Color variables
+//______________________
+
+$white: #fff;
+$black: #000;
+
+$color-grey-17: #17222b;
+$color-grey-33: #334755;
+$color-grey-61: #798e9c;
+$color-grey-83: #cdcfd3;
+$color-grey-95: #e7edf1; 
+$color-grey-99: #fafafc;
+$color-blue-1: #7894bb;
+$color-blue-2: #456799;
+$color-orange-1: #fe670f;
+$color-orange-2: #e8381b;
+
+$outside-main-background--color: linear-gradient(to right, $color-blue-1, $color-blue-2);
+$search-background--color: linear-gradient(to right, $color-orange-1, $color-orange-2);
+
+$placeholder-font--color-white: $white;
+$placeholder-font--color-active: $color-grey-61;
+$search-phrase-font--color: $color-grey-17;
+$search-result-font--color: $color-grey-33;
+
+$border--color: $color-grey-95;
+$shadow--color: $color-grey-83;
+
+$border--radius: 2px;
+//
+// Reset values
+//______________________
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
