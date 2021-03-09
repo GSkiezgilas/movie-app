@@ -21,15 +21,21 @@ const Search = () => {
     });
   }
 
-  const handleSubmit = () => {
-    fetch(apiUrl)
-    .then(data => data.json())
-    .then(data => {
-      setState(prevState => {
+  useEffect(() => {
+    if (state.searchQuery.length >= 3) {
+      fetch(apiUrl)
+      .then(data => data.json())
+      .then(data => {
+        setState(prevState => {
         return {...prevState, searchResults: [...data.results]}
+        });
       });
-    });
-  }
+    } else {
+      setState(prevState => {
+        return {...prevState, searchResults: []}
+      });
+    }
+  }, [state.searchQuery])
 
   const renderResults = results => {
     return (
@@ -55,7 +61,6 @@ const Search = () => {
         <SvgSearch />
       </div>
       {renderResults(state.searchResults)}
-      <button type="button" onClick={handleSubmit}>Submit</button>
     </div>
   )
 }
