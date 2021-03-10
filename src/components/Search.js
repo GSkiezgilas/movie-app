@@ -8,7 +8,7 @@ const Search = () => {
   const [state, setState] = useState({
     searchQuery: "",
     searchResults: [],
-    selectedResult: {}
+    display: true
   });
   const apiKey = process.env.REACT_APP_API;
   const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${state.searchQuery}`; 
@@ -39,10 +39,29 @@ const Search = () => {
 
   const renderResults = results => {
     return (
-      results.length > 0 && (
-        <SearchResults searchResults={state.searchResults}/>
+      results.length > 0 && state.display && (
+        <SearchResults 
+          searchResults={state.searchResults}
+          updateSelectedResult={updateSelectedResult}
+          setState={setState}
+        />
       )
     )
+  }
+
+  const updateSelectedResult = selected => {
+    setState(prevState => {
+      return {...prevState, searchQuery: selected};
+    });
+    setState(prevState => {
+      return {...prevState, display: !state.display};
+    });
+  }
+
+  const updateDisplay = () => {
+    setState(prevState => {
+      return {...prevState, display: true};
+    });
   }
 
   return(
@@ -54,9 +73,12 @@ const Search = () => {
         <input 
           type="text" 
           id="search__input" 
-          className="search__input" 
+          className="search__input"
+          autoComplete="off" 
           placeholder="Enter movie name" 
-          onChange={handleInput}>
+          value={state.searchQuery}
+          onChange={handleInput}
+          onClick={updateDisplay}>
         </input>
         <SvgSearch />
       </div>
